@@ -15,18 +15,4 @@ $  pip install -r requirment.txt
 streamlit run app.py
 
 
-![
-    
-](la1.png) ![
-    
-](la2.png) ![
-    
-](la3.png) ![
-    
-](la4.png) ![
-    
-](la5.png) ![
-    
-](la6.png) ![
-    
-](la7.png)
+![alt text](la1.png) ![alt text](la2.png) ![alt text](la3.png) ![alt text](la4.png) ![alt text](la5.png) ![alt text](la6.png) ![alt text](la7.png)
