@@ -13,3 +13,20 @@ $  pip install -r requirment.txt
 
 # Run the app
 streamlit run app.py
+
+
+![
+    
+](la1.png) ![
+    
+](la2.png) ![
+    
+](la3.png) ![
+    
+](la4.png) ![
+    
+](la5.png) ![
+    
+](la6.png) ![
+    
+](la7.png)
