@@ -1,0 +1,87 @@
+ Rejected test case: Knearst neabhour 
+Age  income   loan_ammount  credit_score  loan_time income_loan_present   
+28  15000     50000          450            3           33
+18  20000     150000         300            0           75
+70  25000     300000         80             1           120
+35  180000    600000         100            1           33
+
+Approve test case 
+Age  income   loan_ammount  credit_score  loan_time income_loan_present  
+50   150000   40000            300           20          0.75
+30   200000   50000            800           5           0.27
+22   50000    10000            750            5          0.20
+40   80000    3500             780          0          0.73
+35   180000   60000           700           1          0.33
+33   50000    25000           500           1          0.50
+
+Enterin new data Inputs for Testing:
+Dataset Columns (with Example Values):
+person_age: Applicant's age (e.g., 30)
+person_gender: Gender (e.g., male or female)
+person_education: Education level (e.g., Bachelor, Master, High School)
+person_income: Annual income (e.g., 100000)
+person_emp_exp: Employment experience in years (e.g., 5)
+person_home_ownership: Type of home ownership (e.g., RENT, OWN, MORTGAGE)
+loan_amnt: Loan amount requested (e.g., 25000)
+loan_intent: Loan purpose (e.g., PERSONAL, EDUCATION, MEDICAL)
+loan_int_rate: Loan interest rate as a percentage (e.g., 7.5)
+loan_percent_income: Loan percentage of annual income (e.g., 0.25)
+cb_person_cred_hist_length: Credit history length in years (e.g., 10)
+credit_score: Credit score (e.g., 700)
+previous_loan_defaults_on_file: Previous loan defaults (e.g., Yes, No)
+loan_status: Loan approval status (for predictions, you can omit or set as null)
+Example Input for Prediction:
+plaintext
+Copy code
+30, male, Bachelor, 100000, 5, MORTGAGE, 25000, PERSONAL, 7.5, 0.25, 10, 700, No, null
+Note: If you're providing this input through code or a UI, ensure all values are properly formatted and correspond to these columns. Let me know if you need help implementing this!
+
+
+
+
+
+
+
+Here are 10 more inputs for prediction with 14 columns:
+
+Inputs for Testing:
+Approved Case
+
+
+35, female, Master, 120000, 7, MORTGAGE, 30000, PERSONAL, 6.5, 0.25, 12, 750, No, 1
+Rejected Case
+
+28, male, High School, 20000, 1, RENT, 15000, MEDICAL, 18.0, 0.75, 2, 500, Yes, 0
+Approved Case
+
+45, male, Bachelor, 80000, 10, OWN, 20000, HOMEIMPROVEMENT, 4.5, 0.20, 15, 780, No, 1
+Rejected Case
+
+
+22, female, High School, 15000, 0, RENT, 25000, SMALLBUSINESS, 19.0, 1.67, 1, 450, Yes, 1
+Approved Case
+
+
+40, male, PhD, 150000, 12, MORTGAGE, 40000, EDUCATION, 5.0, 0.27, 20, 800, No, 0
+Rejected Case
+
+
+60, male, High School, 30000, 3, RENT, 50000, MEDICAL, 16.0, 1.67, 2, 550, Yes, 1
+Approved Case
+
+32, female, Bachelor, 95000, 6, OWN, 20000, HOMEIMPROVEMENT, 7.0, 0.21, 8, 720, No, 0
+Rejected Case
+
+
+29, male, High School, 25000, 2, RENT, 35000, PERSONAL, 15.0, 1.40, 3, 480, Yes, 0
+Approved Case
+
+
+50, female, Master, 200000, 15, MORTGAGE, 60000, LARGE_PURCHASE, 3.5, 0.30, 25, 850, No, 0
+Rejected Case
+
+
+24, male, High School, 18000, 0, RENT, 25000, SMALLBUSINESS, 20.0, 1.39, 1, 400, Yes, 1
+Instructions:
+Replace null with the predicted value (0 or 1) when performing predictions.
+If you'd like to test these directly in the code, make sure they are processed through the feature scaling and encoding steps before prediction.
