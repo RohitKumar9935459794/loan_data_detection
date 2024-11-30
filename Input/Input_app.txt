@@ -1,0 +1,89 @@
+To provide examples of loan applications that are approved or rejected, we can simulate predictions based on a trained model. These examples will demonstrate how various feature values influence the loan status. Below are 10 examples: 5 resulting in approval and 5 in rejection.
+
+Note: These examples are illustrative and should align with the ranges and patterns observed in your dataset.
+
+Approved Loan Examples
+Application 1: Approved
+
+loan_percent_income: 15
+person_income: 75000
+credit_score: 750
+cb_person_cred_hist_length: 10 years
+previous_loan_defaults_on_file: 0
+Application 2: Approved
+
+loan_percent_income: 20
+person_income: 100000
+credit_score: 800
+cb_person_cred_hist_length: 12 years
+previous_loan_defaults_on_file: 0
+Application 3: Approved
+
+loan_percent_income: 18
+person_income: 85000
+credit_score: 770
+cb_person_cred_hist_length: 9 years
+previous_loan_defaults_on_file: 0
+Application 4: Approved
+
+loan_percent_income: 25
+person_income: 90000
+credit_score: 730
+cb_person_cred_hist_length: 11 years
+previous_loan_defaults_on_file: 0
+Application 5: Approved
+
+loan_percent_income: 22
+person_income: 80000
+credit_score: 760
+cb_person_cred_hist_length: 8 years
+previous_loan_defaults_on_file: 0
+Rejected Loan Examples
+Application 6: Rejected
+
+loan_percent_income: 50
+person_income: 30000
+credit_score: 550
+cb_person_cred_hist_length: 4 years
+previous_loan_defaults_on_file: 1
+Application 7: Rejected
+
+loan_percent_income: 40
+person_income: 40000
+credit_score: 600
+cb_person_cred_hist_length: 5 years
+previous_loan_defaults_on_file: 1
+Application 8: Rejected
+
+loan_percent_income: 45
+person_income: 35000
+credit_score: 580
+cb_person_cred_hist_length: 3 years
+previous_loan_defaults_on_file: 1
+Application 9: Rejected
+
+loan_percent_income: 60
+person_income: 25000
+credit_score: 520
+cb_person_cred_hist_length: 2 years
+previous_loan_defaults_on_file: 1
+Application 10: Rejected
+
+loan_percent_income: 55
+person_income: 30000
+credit_score: 540
+cb_person_cred_hist_length: 3 years
+previous_loan_defaults_on_file: 1
+Key Observations:
+Approved Loans:
+
+Low loan_percent_income (indicating affordable loan repayment).
+High person_income and credit_score.
+Longer cb_person_cred_hist_length and no previous_loan_defaults_on_file.
+Rejected Loans:
+
+High loan_percent_income (indicating unaffordable repayment).
+Low person_income and credit_score.
+Shorter cb_person_cred_hist_length and history of previous_loan_defaults_on_file.
+Using These Examples in Streamlit:
+You can manually input these feature values in the form created in your dashboard to verify predictions made by your trained model.

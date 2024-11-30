@@ -44999,3 +44999,5 @@ person_age,person_gender,person_education,person_income,person_emp_exp,person_ho
 33.0,male,Associate,56942.0,7,RENT,2771.0,DEBTCONSOLIDATION,10.02,0.05,10.0,668,No,1
 29.0,male,Bachelor,33164.0,4,RENT,12000.0,EDUCATION,13.23,0.36,6.0,604,No,1
 24.0,male,High School,51609.0,1,RENT,6665.0,DEBTCONSOLIDATION,17.05,0.13,3.0,628,No,1
+24.0, male, High School,18000.0,0, RENT,250000.0, SMALLBUSINESS,20.0,1.39,1.0,400, Yes,1
+24.0, male, High School, 18000, 0, RENT, 250000, SMALLBUSINESS, 20.0, 1.39, 1, 400, Yes, 1

@@ -1,6 +1,5 @@
 import streamlit as st
 import matplotlib.pyplot as plt
-import plotly.express as px
 import seaborn as sns
 import pandas as pd
 import numpy as np
@@ -33,6 +32,33 @@ if 'df' in locals():  # Check if df is loaded
     st.write("Dataset Preview:", df.head())
 else:
     st.error("No dataset available. Please upload a file or check the predefined path.")
+
+# Function to return total rows and columns
+def get_dataset_dimensions(dataset):
+    return dataset.shape
+
+# Function to add new data and update dataset
+def add_new_data(dataset, new_row):
+    new_data = pd.DataFrame([new_row], columns=dataset.columns)
+    updated_dataset = pd.concat([dataset, new_data], ignore_index=True)
+    return updated_dataset
+
+# Add new data
+if st.checkbox("Add New Data to Dataset"):
+    st.write("Provide new data row values separated by commas:")
+    new_data_input = st.text_input("New Row Data (comma-separated):", "")
+    if new_data_input:
+        try:
+            new_row = [float(x) if x.replace('.', '', 1).isdigit() else x for x in new_data_input.split(",")]
+            if len(new_row) != df.shape[1]:
+                st.error(f"Input should have exactly {df.shape[1]} values to match dataset columns.")
+            else:
+                df = add_new_data(df, new_row)
+                st.success("New data added successfully!")
+                st.write("Updated Dataset:", df.tail())
+                st.write(f"Total Rows: {df.shape[0]}, Total Columns: {df.shape[1]}")
+        except Exception as e:
+            st.error(f"Error adding new data: {e}")
 
 # Data Information
 if st.checkbox("Show Data Info"):
@@ -113,7 +139,8 @@ else:
         # Train-Test Split
         X_train, X_test, Y_train, Y_test = train_test_split(X_scaled, Y, test_size=0.2, random_state=42)
 
-        # Modeling Options
+        # Model Selection
+        st.header("Model Selection and Prediction")
         model_option = st.selectbox("Choose a Model", ["Logistic Regression", "SVM", "K-Nearest Neighbors"])
 
         if model_option == "Logistic Regression":
@@ -133,7 +160,8 @@ else:
         conf_matrix = confusion_matrix(Y_test, Y_pred)
         class_report = classification_report(Y_test, Y_pred, output_dict=True)
 
-        st.write(f"Model Accuracy: {accuracy:.4f}")
+        st.write(f"### Model: {model_option}")
+        st.write(f"Accuracy: {accuracy:.4f}")
         st.write("Confusion Matrix:")
         st.write(conf_matrix)
 
@@ -147,20 +175,40 @@ else:
                     yticklabels=["Actual Negative", "Actual Positive"], ax=ax)
         ax.set_xlabel("Predicted Label")
         ax.set_ylabel("True Label")
-        ax.set_title("Confusion Matrix Heatmap")
+        ax.set_title(f"{model_option} - Confusion Matrix Heatmap")
         st.pyplot(fig)
 
-        # Approve Loan or Not
-        st.write("### Approve Loan Based on Model Prediction")
-        sample_input = st.text_input(f"Enter {X_selected.shape[1]} feature values (comma-separated)", "")
+        # Predict Loan Approval for New Input
+        st.write("### Predict Loan Approval")
+
+        sample_input = st.text_input(f"Enter {X_selected.shape[1]} feature values (comma-separated):", "")
+
         if sample_input:
             try:
+                # Parse the input values
                 sample_values = [float(x) for x in sample_input.split(",")]
+
                 if len(sample_values) != X_selected.shape[1]:
                     st.error(f"Input should have exactly {X_selected.shape[1]} values.")
                 else:
+                    # Scale inputs
                     sample_scaled = scaler.transform([sample_values])
                     prediction = model.predict(sample_scaled)
-                    st.write("Loan Status Prediction:", "Approved" if prediction[0] == 1 else "Rejected")
+
+                    # Display prediction
+                    prediction_result = "Approved" if prediction[0] == 1 else "Rejected"
+                    st.write("Loan Status Prediction:", prediction_result)
+
+                    # Visualize Prediction
+                    fig, ax = plt.subplots()
+                    ax.bar(["Approved", "Rejected"],
+                           [1 if prediction_result == "Approved" else 0,
+                            1 if prediction_result == "Rejected" else 0],
+                           color=["green", "red"])
+                    ax.set_title("Loan Approval Status")
+                    ax.set_ylabel("Prediction")
+                    ax.set_ylim(0, 1)
+                    st.pyplot(fig)
+
             except ValueError as e:
-                st.error(f"Input contains invalid characters. Ensure only numeric values are provided. Error: {e}")
+                st.error(f"Invalid input: {e}")
